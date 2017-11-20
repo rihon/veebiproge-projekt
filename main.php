@@ -1,4 +1,4 @@
-<?php
+ <?php
 	require("functions.php");
 	
 	//kui pole sisseloginud, siis sisselogimise lehele
@@ -41,7 +41,7 @@
 
 	<?php require ("header.php")?>
 	
-	<p>Selle lehe nimi on Tlunder.</p>
+	<p>Selle lehe nimi on TLUnder.</p>
 	<p><a href="?logout=1">Logi välja</a>!</p>
 	<p><a href="usersinfo.php">Kasutajate info</a></p><!--Viib kasutajate lehele et leida kaaslast-->
 	<p><a href=>Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->

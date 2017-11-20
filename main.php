@@ -14,12 +14,10 @@
 		header("Location: login.php");
 		exit();
 	}
-	$dirToRead = "../uploads/";
+	//$dirToRead = "../uploads/";
 	//kuna tahan ainult pildifaile, siis filtreerin
 	$picFileTypes = ["jpg", "jpeg", "png", "gif"];
 	$picFiles = [];
-	//$allFiles = scandir($dirToRead);
-	//loen kataloogi ja viskan kaks esimest massiivi liiget (. ja ..) välja
 	$allFiles = array_slice(scandir($dirToRead),2);
 	//var_dump($allFiles);
 	
@@ -50,5 +48,5 @@
 	<p><a href=>Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->
 	
 	<!--<p>Üks pilt Tallinna Ülikoolist!</p>
-	<img src="<?php echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">-->
+	<img src="<?php //echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">-->
 <?php require("footer.php") ?>

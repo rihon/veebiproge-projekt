@@ -31,7 +31,7 @@
 	
 	$loginEmailError ="";
 	
-	$ideaHTML = latestIdea();
+	//$ideaHTML = latestIdea();
 	
 	//kas logitakse sisse
 	if (isset($_POST["loginButton"])){
@@ -145,7 +145,7 @@
 		$signupPassword = hash("sha512", $_POST["signupPassword"]);
 		//echo "\n Parooli " .$_POST["signupPassword"] ." räsi on: " .$signupPassword;
 		//kutsume välja kasutaja salvestamise funktsiooni
-		signuUp($signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupEmail, $signupPassword);
+		signUp($signupFirstName, $signupFamilyName, $signupBirthDate, $gender, $signupEmail, $signupPassword);
 	}
 	
 	}//if kui oli vajutatud nuppu "Loo kasutaja"

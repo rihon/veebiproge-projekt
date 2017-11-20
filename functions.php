@@ -1,5 +1,5 @@
 <?php
-	require("../../config.php");
+	require("config.php");
 	$database = "if17_riho_4";
 	
 	//alustan sessiooni
@@ -10,7 +10,7 @@
 		$notice = "";
 		//ühendus serveriga
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-		$stmt = $mysqli->prepare("SELECT id, firstname, lastname, email, password FROM vp_users WHERE email = ?");
+		$stmt = $mysqli->prepare("SELECT id, firstname, lastname, email, password FROM TLUnder_users WHERE email = ?");
 		$stmt->bind_param("s", $email);
 		$stmt->bind_result($id, $firstnameFromDb, $lastnameFromDb, $emailFromDb, $passwordFromDb);
 		$stmt->execute();
@@ -47,7 +47,7 @@
 		
 	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		//valmistame ette käsu andmebaasiserverile
-		$stmt = $mysqli->prepare("INSERT INTO vpusers (firstname, lastname, birthday, gender, email, password) VALUES (?, ?, ?, ?, ?, ?)");
+		$stmt = $mysqli->prepare("INSERT INTO TLUnder_users (firstname, lastname, birthday, gender, email, password) VALUES (?, ?, ?, ?, ?, ?)");
 		echo $mysqli->error;
 		//s - string
 		//i - integer
@@ -64,7 +64,7 @@
 	}
 	
 	//mõtete salvestamine
-	function saveIdea($idea, $color){
+	/*function saveIdea($idea, $color){
 		//echo $color;
 		$notice = "";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
@@ -80,9 +80,9 @@
 		$mysqli->close();
 		return $notice;
 	}
-	
+	*/
 	//kõikide ideede lugemise funktsioon
-	function readAllIdeas(){
+	/*function readAllIdeas(){
 		$ideasHTML = "";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		//$stmt = $mysqli->prepare("SELECT idea, ideaColor FROM vpuserideas WHERE userid = ?");
@@ -99,9 +99,9 @@
 		$mysqli->close();
 		return $ideasHTML;
 	}
-	
+	*/
 	//uusima idee lugemine
-	function latestIdea(){
+	/*function latestIdea(){
 		//$ideaHTML = "";
 		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
 		$stmt = $mysqli->prepare("SELECT idea FROM vpuserideas WHERE id = (SELECT MAX(id) FROM vpuserideas)");
@@ -114,13 +114,13 @@
 		} else {
 			echo "Tekkis viga: " .$stmt->error;
 		}*/
-		$stmt->execute();
+		/*$stmt->execute();
 		$stmt->fetch();//nüüd jääb meelde, kui fetch() ei tee, andmeid ei saa!
 		$stmt->close();
 		$mysqli->close();
 		return $idea;
 	}
-	
+	*/
 	//sisestuse kontrollimise funktsioon
 	function test_input($data){
 		$data = trim($data);//ebavajalikud tühiku jms eemaldada
@@ -128,21 +128,5 @@
 		$data = htmlspecialchars($data);//keelatud sümbolid
 		return $data;
 	}
-	
-	/*
-	$x = 5;
-	$y = 6;
-	echo ($x + $y);
-	addValues();
-	
-	function addValues(){
-		$z = $GLOBALS["x"] + $GLOBALS["y"];
-		echo "Summa on: " .$z;
-		$a = 3;
-		$b = 4;
-		echo "Teine summa on: " .($a + $b);
-	}
-	echo "Kolmas summa on: " .($a + $b);
-	*/
 	
 ?>

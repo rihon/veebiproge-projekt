@@ -7,3 +7,4 @@
 	</title>
 </head>
 <body>
+<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h1>

@@ -44,11 +44,11 @@
 	<?php require ("header.php")?>
 	
 	<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h1>
-	<p>See veebileht on loodud veebiprogrammeerimise kursusel ning ei sisalda mingisugust tõsiseltvõetavat sisu.</p>
+	<p>Selle lehe nimi on Tlunder.</p>
 	<p><a href="?logout=1">Logi välja</a>!</p>
-	<p><a href="usersinfo.php">Kasutajate info</a></p>
-	<p><a href="photoupload.php">Pildi üleslaadimine</a></p>
-	<p><a href="usersideas.php">Kasutajate ideed</a></p>
-	<p>Üks pilt Tallinna Ülikoolist!</p>
-	<img src="<?php echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">
+	<p><a href="usersinfo.php">Kasutajate info</a></p><!--Viib kasutajate lehele et leida kaaslast-->
+	<p><a href=>Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->
+	
+	<!--<p>Üks pilt Tallinna Ülikoolist!</p>
+	<img src="<?php echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">-->
 <?php require("footer.php") ?>

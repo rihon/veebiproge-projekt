@@ -195,8 +195,6 @@
 	
 ?>
 <?phprequire("header.php")?>
-<h1>Hea mõte</h1>
-<p>Värskeim mõte:</p>
 	<h1>Logi sisse!</h1>
 	<p>Siin harjutame sisselogimise funktsionaalsust.</p>
 	

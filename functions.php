@@ -129,4 +129,18 @@
 		return $data;
 	}
 	
+	//Kõikide kasutajate list
+	function allUsers(){
+	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+	$stmt = $mysqli->prepare("SELECT firstname, lastname FROM TLUnder_users");
+	echo $mysqli->error;
+	$stmt->bind_result($FirstName, $FamilyName);
+	$stmt->execute();
+	while ($stmt->fetch()){
+		echo $FirstName ." " .$FamilyName ."</br>";
+	}
+	$stmt->close();
+	$mysqli->close();
+	}
+	
 ?>

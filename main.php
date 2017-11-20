@@ -38,7 +38,8 @@
 	$fileCount = count($picFiles);
 	$picNumber = mt_rand(0, $fileCount - 1);
 	$picToShow = $picFiles[$picNumber];
-?>
+//TEST123
+	?>
 
 	<?php require ("header.php")?>
 	

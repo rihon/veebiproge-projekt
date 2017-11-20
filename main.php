@@ -41,7 +41,6 @@
 
 	<?php require ("header.php")?>
 	
-	<h1><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h1>
 	<p>Selle lehe nimi on Tlunder.</p>
 	<p><a href="?logout=1">Logi välja</a>!</p>
 	<p><a href="usersinfo.php">Kasutajate info</a></p><!--Viib kasutajate lehele et leida kaaslast-->

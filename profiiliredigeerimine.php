@@ -119,14 +119,14 @@ require("functions.php");
 	}//kas vajutati submit nuppu, lõppeb
 	
 	
+	
+	
 
 	
 	
 	
 	
-	$picFiles = [];
-	$dirToRead = "uploads/";
-	$picToShow = $picFiles[$picNumber];
+	
 ?>
 
 
@@ -136,7 +136,7 @@ require("functions.php");
 <?php require ("header.php")?>
 <h2>Siin on võimalik enda kasutajakontot redigeerida</h2>
 
-<img src="<?php echo $dirToRead .$picToShow; ?>" alt="TLUnder">
+<img src="<?php echo $showPicture; ?>" alt="TLUnder">
 
 
 <h2>Foto üleslaadimine</h2>

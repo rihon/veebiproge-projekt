@@ -143,4 +143,20 @@
 	$mysqli->close();
 	}
 	
+	function showEditPicture(){
+		$images = ("uploads/");
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("SELECT filename FROM TLUnder_photo WHERE userid=?");
+		$stmt->bind_param("i", $_SESSION["userId"]);
+		$stmt->bind_result($showEditPicture);
+		$stmt->execute();
+		$stmt->fetch();
+		echo '<img src="'.$images .$showEditPicture .'" alt="'.$showEditPicture .'">';
+		$stmt->close();
+		$mysqli->close();
+		
+		
+	}
+	
+	
 ?>

@@ -119,13 +119,7 @@ require("functions.php");
 		} //kas üldse mõni fail valiti, lõppeb
 	}//kas vajutati submit nuppu, lõppeb
 	
-	
-	
-	
-
-	
-	
-	
+	//showEditPicture($showEditPicture)
 	
 	
 ?>
@@ -137,7 +131,7 @@ require("functions.php");
 <?php require ("header.php")?>
 <h2>Siin on võimalik enda kasutajakontot redigeerida</h2>
 
-<img src="<?php echo $showPicture; ?>" alt="TLUnder">
+<?php showEditPicture();echo ($_SESSION["userId"])?>
 
 
 <h2>Foto üleslaadimine</h2>
@@ -146,6 +140,7 @@ require("functions.php");
 		<input type="file" name="fileToUpload" id="fileToUpload">
 		<input type="submit" value="Lae üles" name="submit" id="submitPhoto"><span id="fileSizeError"></span>
 	</form>
+	
 
 
 <?php require("footer.php") ?>

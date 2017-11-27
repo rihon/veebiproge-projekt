@@ -141,6 +141,11 @@ require("functions.php");
 		<input type="submit" value="Lae üles" name="submit" id="submitPhoto"><span id="fileSizeError"></span>
 	</form>
 	
+<h2>Enda imelise iseloomu tutvustamine</h2>
+	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+		<input type="hidden" name="id" value="<?php echo $_GET["'id'"];?>">
+		<label>Iseloomustus </label>
+		<textarea name="idea"><?php echo $idea->text;?></textarea>
 
 
 <?php require("footer.php") ?>

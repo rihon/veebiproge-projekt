@@ -44,7 +44,7 @@ require("functions.php");
 	}
 	
 	//Algab foto laadimise osa
-	$target_dir = "../uploads/";
+	$target_dir = "uploads/";
 	$target_file;
 	$uploadOk = 1;
 	$imageFileType;
@@ -124,9 +124,9 @@ require("functions.php");
 	
 	
 	
-	
-	
-	
+	$picFiles = [];
+	$dirToRead = "uploads/";
+	$picToShow = $picFiles[$picNumber];
 ?>
 
 
@@ -135,6 +135,10 @@ require("functions.php");
 
 <?php require ("header.php")?>
 <h2>Siin on võimalik enda kasutajakontot redigeerida</h2>
+
+<img src="<?php echo $dirToRead .$picToShow; ?>" alt="TLUnder">
+
+
 <h2>Foto üleslaadimine</h2>
 	<form action="profiiliredigeerimine.php" method="post" enctype="multipart/form-data">
 		<label>Valige pildifail:</label>

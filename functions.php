@@ -127,16 +127,19 @@
 	//Kõikide kasutajate list
 	function allUsers(){
 	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
-	$stmt = $mysqli->prepare("SELECT firstname, lastname FROM TLUnder_users");
-	echo $mysqli->error;
-	$stmt->bind_result($FirstName, $FamilyName);
+	$stmt = $mysqli->prepare("SELECT firstname, lastname, id FROM TLUnder_users");	
+	$stmt->bind_result($FirstName, $FamilyName, $id);
 	$stmt->execute();
 	while ($stmt->fetch()){
-		echo $FirstName ." " .$FamilyName ."</br>";
+		echo "<a href=profiil.php?userId=" .$id .">" .$FirstName ." " .$FamilyName ."</a></br>";
+		
 	}
+	$notice= $mysqli->error;
 	$stmt->close();
 	$mysqli->close();
+	
 	}
+
 	
 	function showEditPicture(){
 		$images = ("uploads/");

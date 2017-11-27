@@ -24,6 +24,6 @@
 <p>Siin on kõigi registreeritud kasutajate nimed</p>
 <p><a href="?logout=1">Logi välja</a>!</p>
 <p><a href="main.php">Avalehele</a>!</p>
-<?php allUsers(); ?>
+<?php allUsers();?>
 
 <?php require("footer.php") ?>

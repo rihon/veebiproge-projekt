@@ -46,7 +46,7 @@
 	<p><a href="usersinfo.php">Kasutajate info</a></p><!--Viib kasutajate lehele et leida kaaslast-->
 	<p><a href="profiiliredigeerimine.php">Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->
 	
-	<p><a href="profiil.php?userId=4">TEST</a></p>
+	<p><a href="profiil.php?userId=2">TEST</a></p>
 	
 	<!--<p>Üks pilt Tallinna Ülikoolist!</p>
 	<img src="<?php //echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">-->

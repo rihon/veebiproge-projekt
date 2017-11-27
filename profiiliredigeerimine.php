@@ -1,5 +1,6 @@
 <?php
 require("functions.php");
+require("aboutfunction.php");
 	$notice = "";
 	$allIdeas = "";
 	
@@ -118,10 +119,52 @@ require("functions.php");
 			$notice = "Palun valige kõigepealt pildifail!";
 		} //kas üldse mõni fail valiti, lõppeb
 	}//kas vajutati submit nuppu, lõppeb
+
 	
-	//showEditPicture($showEditPicture)
+	//kui soovitakse iseloomustust salvestada
+	if(isset($_POST["aboutBtn"])){
+		
+		if(isset($_POST["about"])and !empty($_POST["about"])){
+			$myAbout = test_input($_POST["about"]);
+			$notice = saveIseloom($myAbout);
+		}
+	}	
 	
-	
+//UUENDAMISE MOODULID
+//Kui iseloomu pole siis esimene variant
+//Kui iseloom on siis uuendamine
+if(isset($_POST["aboutBtn"])){
+	$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+	$stmt = $mysqli->prepare("SELECT id FROM TLUnder_user_profile WHERE id = ?");
+	$stmt->bind_param("i", $_SESSION["userId"]);
+	$stmt->bind_result($result);
+	$stmt->execute();
+	$stmt->fetch();
+	$stmt->close();
+	$mysqli->close();
+	if(($result)==($_SESSION["userId"])){
+	//Iseloom on olemas, tuleb uuendada
+			if(isset($_POST["about"])and !empty($_POST["about"])){
+			$myAbout = test_input($_POST["about"]);
+			$notice = updateIseloom($myAbout);
+		}
+	}else{
+		//Iseloomu pole, tuleb salvestada
+		if(isset($_POST["about"])and !empty($_POST["about"])){
+			$myAbout = test_input($_POST["about"]);
+			$notice = saveIseloom($myAbout);
+		}
+	}
+
+		//kas uuendatakse
+		if (isset($_POST["update"])){
+			echo "hakkab uuendama!";
+			echo $_POST["id"];
+			updateIdea($_POST["id"], test_input($_POST["about"]));
+			header("Location: profiiliredigeerimine.php");
+			exit();
+		}
+}
 ?>
 
 
@@ -131,7 +174,7 @@ require("functions.php");
 <?php require ("header.php")?>
 <h2>Siin on võimalik enda kasutajakontot redigeerida</h2>
 
-<?php showEditPicture();echo ($_SESSION["userId"])?>
+<?php showEditPicture();?>
 
 
 <h2>Foto üleslaadimine</h2>
@@ -142,10 +185,15 @@ require("functions.php");
 	</form>
 	
 <h2>Enda imelise iseloomu tutvustamine</h2>
+<p><?php getSingleAboutData();?></p>
+<h2>Lisa enda iseloomustus</h2>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-		<input type="hidden" name="id" value="<?php echo $_GET["'id'"];?>">
-		<label>Iseloomustus </label>
-		<textarea name="idea"><?php echo $idea->text;?></textarea>
+		<label>Muuda iseloomustust </label>
+		<input name="about" type="text">
+		<input name="aboutBtn" type="submit" value="Muuda">
+	</form>
+
+	<p><?php echo $notice;?></p>
 
 
 <?php require("footer.php") ?>

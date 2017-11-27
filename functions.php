@@ -122,12 +122,7 @@
 	}
 	*/
 	//sisestuse kontrollimise funktsioon
-	function test_input($data){
-		$data = trim($data);//ebavajalikud tühiku jms eemaldada
-		$data = stripslashes($data);//kaldkriipsud jms eemaldada
-		$data = htmlspecialchars($data);//keelatud sümbolid
-		return $data;
-	}
+	
 	
 	//Kõikide kasutajate list
 	function allUsers(){
@@ -157,6 +152,48 @@
 		
 		
 	}
+	
+	function test_input($data){
+		$data = trim($data);//ebavajalikud tühiku jms eemaldada
+		$data = stripslashes($data);//kaldkriipsud jms eemaldada
+		$data = htmlspecialchars($data);//keelatud sümbolid
+		return $data;
+	}
+	
+	function saveIseloom($about){
+		//echo $color;
+		$notice = "";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO TLUnder_user_profile (id, userid, text) VALUES (?,?,?)");
+		echo $mysqli->error;
+		$stmt->bind_param("iis", $_SESSION["userId"], $_SESSION["userId"],$about);
+		if($stmt->execute()){
+			$notice = "Iseloom on muudetud!";
+		} else {
+			$notice = "Iseloomu muutmisel tekkis viga: " .$stmt->error;
+		}
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+	}
+	
+		function updateIseloom($about){
+		//echo $color;
+		$notice = "";
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("UPDATE TLUnder_user_profile SET text = ? WHERE id=?");
+		echo $mysqli->error;
+		$stmt->bind_param("si" ,$about ,$_SESSION["userId"]);
+		if($stmt->execute()){
+			$notice = "Iseloom on muudetud!";
+		} else {
+			$notice = "Iseloomu muutmisel tekkis viga: " .$stmt->error;
+		}
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+	} 
+	
 	
 	
 ?>

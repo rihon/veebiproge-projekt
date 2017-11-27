@@ -44,7 +44,9 @@
 	<p>Selle lehe nimi on TLUnder.</p>
 	<p><a href="?logout=1">Logi välja</a>!</p>
 	<p><a href="usersinfo.php">Kasutajate info</a></p><!--Viib kasutajate lehele et leida kaaslast-->
-	<p><a href=>Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->
+	<p><a href="profiiliredigeerimine.php">Kasutajakonto redigeerimine</a></p><!--Kasutajakonto redigeerimine, muuta saab tutvustust ja pilte-->
+	
+	<p><a href="profiil.php?userId=4">TEST</a></p>
 	
 	<!--<p>Üks pilt Tallinna Ülikoolist!</p>
 	<img src="<?php //echo $dirToRead .$picToShow; ?>" alt="Tallinna Ülikool">-->

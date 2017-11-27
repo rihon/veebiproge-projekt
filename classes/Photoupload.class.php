@@ -9,6 +9,7 @@
 		private $myImage;
 		private $marginRight;
 		private $marginBottom;
+		public $target_file;
 		public  $exifToImage;
 		
 		
@@ -114,6 +115,27 @@
 			imagedestroy($this->myTempImage);
 		}//function clearImages lõppeb		
 		
+		
+		public function photoToDatabase($target_file){
+		
+		$mysqli = new mysqli($GLOBALS["serverHost"], $GLOBALS["serverUsername"], $GLOBALS["serverPassword"], $GLOBALS["database"]);
+		$stmt = $mysqli->prepare("INSERT INTO TLUnder_photo (id, userid, filename) VALUES (?, ?, ?);");
+	
+		echo $mysqli->error;
+		$stmt->bind_param("iis", $_SESSION["userId"], $_SESSION["userId"], $target_file);
+		if($stmt->execute()){
+			$notice = "Pilt on salvestatud!";
+		} else {
+			$notice = "Pildi salvestamisel tekkis viga: " .$stmt->error;
+		}
+		$stmt->close();
+		$mysqli->close();
+		return $notice;
+		}	
 	}//class lõppeb
+	
+
+	
+	
 
 ?>

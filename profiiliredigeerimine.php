@@ -109,6 +109,7 @@ require("functions.php");
 				//$myPhoto->addTextWatermark("hmv_foto");
 				$myPhoto->savePhoto($target_dir, $target_file);
 				$myPhoto->clearImages();
+				$myPhoto->photoToDatabase($target_file);
 				unset ($myPhoto);
 				
 			}

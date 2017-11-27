@@ -31,7 +31,7 @@
 			}
 		}//function readExif lõppeb
 		private function createImage(){
-			if($this->imageFileType == "jpg" or $imageFileType == "jpeg"){
+			if($this->imageFileType == "jpg" or $this->imageFileType == "jpeg"){
 				$this->myTempImage = imagecreatefromjpeg($this->tempName);
 			}
 			if($this->imageFileType == "png"){

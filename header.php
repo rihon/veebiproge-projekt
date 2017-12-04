@@ -16,3 +16,4 @@
 </body>
 <h3><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h3>
 <p><a href="main.php">Avalehele</a>!</p>
+<p><a href="?logout=1">Logi välja</a>!</p>

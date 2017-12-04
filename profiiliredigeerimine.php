@@ -176,6 +176,9 @@ if(isset($_POST["aboutBtn"])){
 
 <?php showEditPicture();?>
 
+<h2>Enda imelise iseloomu tutvustamine</h2>
+<p><?php getSingleAboutData();?></p>
+
 
 <h2>Foto üleslaadimine</h2>
 	<form action="profiiliredigeerimine.php" method="post" enctype="multipart/form-data">
@@ -184,9 +187,8 @@ if(isset($_POST["aboutBtn"])){
 		<input type="submit" value="Lae üles" name="submit" id="submitPhoto"><span id="fileSizeError"></span>
 	</form>
 	
-<h2>Enda imelise iseloomu tutvustamine</h2>
-<p><?php getSingleAboutData();?></p>
-<h2>Lisa enda iseloomustus</h2>
+	
+<h2>Iseloomustuse muutmine</h2>
 	<form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
 		<label>Muuda iseloomustust </label>
 		<input name="about" type="text">

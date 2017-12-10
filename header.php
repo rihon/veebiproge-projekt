@@ -12,7 +12,7 @@
 	</title>
 </head>
 <body>
-<img src="https://i.imgur.com/q1Wh6R3.png" alt="TLUnderi logo">
+<img src="https://i.imgur.com/sjoCdMn.png?1" alt="TLUnderi logo">
 </body>
 <h3><?php echo $_SESSION["firstname"] ." " .$_SESSION["lastname"]; ?></h3>
 <p><a href="main.php">Avalehele</a>!</p>

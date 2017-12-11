@@ -1,6 +1,6 @@
 <?php
 $userId =($_GET['userId']);
-echo $userId;
+#echo $userId;
 require("functions.php");
 require("aboutfunction.php");
 

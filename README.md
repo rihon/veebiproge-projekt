@@ -12,5 +12,3 @@ Ainult enda profiili saab redigeerida
 Kõik on olemas listina
 valid kasutaja
 kasutaja pilt ja iseloomustus
-kommenteerimine
-hindamine
